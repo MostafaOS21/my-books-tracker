@@ -1,0 +1,186 @@
+/* Google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+/* Global rules */
+:root {
+  --primary-col: #009688;
+  --dark-white: #bfbfbf;
+}
+
+.App {
+  font-family: "Poppins", sans-serif;
+}
+
+section .lib,
+section .results {
+  padding: 0.5rem 1rem;
+}
+
+.grid-system {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 270px));
+  justify-content: center;
+  gap: 15px;
+  padding: 2.5em 4em 5.5em;
+}
+/* Shelf */
+.shelf {
+  position: relative;
+}
+.shelf header {
+  text-align: center;
+  background-color: var(--primary-col);
+  color: white;
+  padding: 0.7em;
+  font-size: 1.3em;
+  font-weight: 500;
+}
+
+.shelf h1 {
+  text-align: left;
+  border-bottom: 1px solid var(--dark-white);
+}
+
+.shelf .add-book {
+  background-color: var(--primary-col);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  border-radius: 50%;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  transition: transform 0.3s ease-in, box-shadow 0.3s ease-in,
+    background-color 0.2s ease-in-out;
+}
+
+.shelf .add-book:hover {
+  transform: translateY(-1px);
+  box-shadow: 0px 4px 8px #28282852;
+  background-color: white;
+}
+
+.shelf .add-book:hover svg {
+  fill: var(--primary-col);
+}
+/* box-shadow: 0px 4px 8px #28282852; */
+
+/* Search Page */
+.search-page header {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  box-shadow: 0px 4px 8px #28282852;
+}
+
+.search-page header input {
+  flex: 1;
+}
+
+.search-page header a {
+  padding: 0.8em 1.3em;
+  background-color: var(--primary-col);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.search-page header a:hover {
+  background-color: #008476;
+}
+
+.search-page header a svg path {
+  fill: white;
+}
+
+.search-page header input {
+  border: none;
+  outline: none;
+  padding: 0 15px;
+  font-size: 20px;
+}
+
+/* Single Book */
+.book {
+  text-align: center;
+}
+
+.book .thumbnail {
+  position: relative;
+  width: fit-content;
+  margin: auto;
+}
+
+.book .thumbnail img {
+  position: relative;
+  z-index: 0;
+  height: 170px;
+}
+
+.book .show-filter {
+  position: absolute;
+  z-index: 100;
+  right: -5px;
+  bottom: -5px;
+  background-color: var(--primary-col);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+.book .show-filter:hover,
+.book .show-filter.active {
+  transform: translateY(-1px);
+  box-shadow: 0px 4px 8px #28282852;
+}
+
+.book .show-filter svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.book .show-filter ul.move-to {
+  position: absolute;
+  bottom: -150px;
+  left: -140px;
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+  width: 180px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0px 4px 8px #28282852;
+  color: var(--primary-col);
+  text-align: left;
+  transform: scale(0);
+  transition: opacity 0.2s ease-in-out,
+  transfrom 0.2s ease-in-out;
+  opacity: 0;
+}
+
+.book .show-filter.active ul.move-to{
+  transform: scale(1) translatey(8px);
+  opacity: 1;
+}
+
+.book .show-filter ul.move-to li {
+  padding: 10px;
+  padding-left: 8px;
+  padding-right: 0px;
+  transition: background-color 0.1s ease-in-out;
+}
+
+.book .show-filter ul.move-to li:hover {
+  background-color: var(--primary-col);
+  color: white;
+}
+.book h4 {
+  margin-bottom: 2px;
+}
+
+.book p {
+  margin: 0;
+}
