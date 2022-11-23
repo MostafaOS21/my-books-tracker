@@ -15,36 +15,37 @@ function SearchPage() {
       setResults(data);
     };
 
-    if(query) {
+    if (query) {
       handleChnage(query);
     }
-  }, [query])
+  }, [query]);
 
-  elements = <h3 className="note">Start Searching</h3>
-  if(results?.length) {
+  elements = <h3 className="note">Start Searching</h3>;
+  if (results?.length) {
     elements = results.map((result) => {
-      return(
-        <SingleBook key={`${result.id}map`} id={result.id} title={result.title}
-          imgSrc={result.imageLinks.thumbnail}
-          authors={result.authors} wholeBook={result}
+      return (
+        <SingleBook
+          key={`${result?.id}map`}
+          id={result?.id}
+          title={result?.title}
+          imgSrc={result.imageLinks?.thumbnail}
+          authors={result?.authors}
+          wholeBook={result}
         />
-      )
-    })
-  } else if(query) {
-    elements = <h3 className="note">Sorry Nothing is found</h3>
+      );
+    });
+  } else if (query) {
+    elements = <h3 className="note">Sorry Nothing is found</h3>;
   }
-
 
   return (
     <section className="search-page">
       <header>
         <Link to={"/"}>{backArrow}</Link>
-        <input type="text" onChange={event => setQuery(event.target.value)} />
+        <input type="text" onChange={(event) => setQuery(event.target.value)} />
       </header>
 
-      <div className="grid-system">
-        {elements}
-      </div>
+      <div className="grid-system">{elements}</div>
     </section>
   );
 }
